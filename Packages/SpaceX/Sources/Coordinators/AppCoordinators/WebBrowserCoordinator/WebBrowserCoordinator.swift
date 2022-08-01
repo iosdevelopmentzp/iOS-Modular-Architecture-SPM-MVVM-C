@@ -33,7 +33,7 @@ final class WebBrowserCoordinator: NavigationCoordinator {
 // MARK: - WebBrowserSceneDelegate
 
 extension WebBrowserCoordinator: WebBrowserSceneDelegate {
-    func didTapDoneButton() {
+    @MainActor func didTapDoneButton() {
         navigation.popViewController(animated: true)
         childDidFinish(self)
     }

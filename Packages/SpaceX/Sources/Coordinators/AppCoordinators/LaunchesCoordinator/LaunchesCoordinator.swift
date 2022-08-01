@@ -22,31 +22,28 @@ final class LaunchesCoordinator: NavigationCoordinator {
     private var filtersCompletion: (([LaunchesFilter]) -> Void)?
     
     override func start() {
-        Task {
-            let networkFactory = NetworkServicesFactory(configuration: Configuration())
-            // TODO: - Use DI
-            let useCase = UseCasesFactory(networkFactory: networkFactory).spaceCompanyUseCase
-            let viewModel = await LaunchesViewModel(useCase: useCase, sceneDelegate: self)
-            let view = await LaunchesViewController(viewModel: viewModel)
-            await navigation.pushViewController(view, animated: false)
-        }
+        let networkFactory = NetworkServicesFactory(configuration: Configuration())
+        let useCase = UseCasesFactory(networkFactory: networkFactory).spaceCompanyUseCase
+        let viewModel = LaunchesViewModel(useCase: useCase, sceneDelegate: self)
+        let view = LaunchesViewController(viewModel: viewModel)
+        navigation.pushViewController(view, animated: false)
     }
 }
 
 // MARK: - LaunchesSceneDelegate
 
 extension LaunchesCoordinator: LaunchesSceneDelegate {
-    func routeToFilters(_ current: [LaunchesFilter], completion: @escaping ([LaunchesFilter]) -> Void) {
+    @MainActor func routeToFilters(
+        _ current: [LaunchesFilter],
+        completion: @escaping ([LaunchesFilter]) -> Void
+    ) {
         self.filtersCompletion = completion
-        
-        Task {
-            let viewModel = await LaunchesFiltersViewModel(filters: current, sceneDelegate: self)
-            let viewController = await LaunchesFiltersViewController(viewModel: viewModel)
-            await navigation.present(viewController, animated: true)
-        }
+        let viewModel = LaunchesFiltersViewModel(filters: current, sceneDelegate: self)
+        let viewController = LaunchesFiltersViewController(viewModel: viewModel)
+        navigation.present(viewController, animated: true)
     }
     
-    func routeToWeb(with url: URL) {
+    @MainActor func routeToWeb(with url: URL) {
         let coordinator = WebBrowserCoordinator(url: url, navigation: self.navigation)
         addChild(coordinator)
         coordinator.start()
@@ -56,11 +53,11 @@ extension LaunchesCoordinator: LaunchesSceneDelegate {
 // MARK: - LaunchesFiltersSceneDelegate
 
 extension LaunchesCoordinator: LaunchesFiltersSceneDelegate {
-    func dismissScene() {
+    @MainActor func dismissScene() {
         (navigation.presentedViewController as? LaunchesFiltersViewController)?.dismiss(animated: true)
     }
     
-    func didTapConfirm(with filters: [LaunchesFilter]) {
+    @MainActor func didTapConfirm(with filters: [LaunchesFilter]) {
         (navigation.presentedViewController as? LaunchesFiltersViewController)?.dismiss(animated: true)
         filtersCompletion?(filters)
         filtersCompletion = nil

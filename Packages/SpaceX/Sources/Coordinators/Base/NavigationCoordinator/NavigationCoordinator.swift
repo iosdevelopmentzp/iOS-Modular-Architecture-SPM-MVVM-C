@@ -22,7 +22,7 @@ open class NavigationCoordinator: CoordinatorProtocol {
     
     // MARK: - Functions
     
-    public func start() {
+    @MainActor public func start() {
         fatalError("This method must be overridden")
     }
     
