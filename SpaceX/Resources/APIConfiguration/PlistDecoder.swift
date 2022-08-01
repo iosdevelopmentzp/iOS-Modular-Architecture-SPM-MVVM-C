@@ -24,7 +24,7 @@ struct PlistDecoder {
             inDirectory: nil
         ).compactMap(URL.init(fileURLWithPath:))
         
-        let expectedFileName = T.plistFileName + "." + Constants.resourcesType
+        let expectedFileName = [T.plistFileName, ".", Constants.resourcesType].joined(separator: "")
         
         assert(paths.filter { $0.lastPathComponent == expectedFileName }.count <= 1)
         
