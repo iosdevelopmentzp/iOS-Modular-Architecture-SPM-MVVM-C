@@ -13,8 +13,11 @@
 		3B8A9BC72896A99100ED8939 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8A9BC52896A99100ED8939 /* LaunchScreen.storyboard */; };
 		3B8A9BD22896AABE00ED8939 /* Coordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 3B8A9BD12896AABE00ED8939 /* Coordinators */; };
 		3BAB88CA2898816800EB3EA3 /* DependencyResolver in Frameworks */ = {isa = PBXBuildFile; productRef = 3BAB88C92898816800EB3EA3 /* DependencyResolver */; };
-		3BAB88D5289886D400EB3EA3 /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB88D4289886D400EB3EA3 /* ApiConfiguration.swift */; };
 		3BAB88D7289888BF00EB3EA3 /* Assemblies in Frameworks */ = {isa = PBXBuildFile; productRef = 3BAB88D6289888BF00EB3EA3 /* Assemblies */; };
+		3BAB88D928988D4200EB3EA3 /* APIConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BAB88D828988D4200EB3EA3 /* APIConfiguration.plist */; };
+		3BAB88DC28988E8500EB3EA3 /* PlistDecodableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB88DB28988E8500EB3EA3 /* PlistDecodableType.swift */; };
+		3BAB88DE28988EBC00EB3EA3 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB88DD28988EBC00EB3EA3 /* APIConfiguration.swift */; };
+		3BAB88E028988EF300EB3EA3 /* PlistDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB88DF28988EF300EB3EA3 /* PlistDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +28,10 @@
 		3B8A9BC62896A99100ED8939 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B8A9BC82896A99100ED8939 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8A9BCF2896AA8300ED8939 /* SpaceX */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SpaceX; path = Packages/SpaceX; sourceTree = "<group>"; };
-		3BAB88D4289886D400EB3EA3 /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
+		3BAB88D828988D4200EB3EA3 /* APIConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIConfiguration.plist; sourceTree = "<group>"; };
+		3BAB88DB28988E8500EB3EA3 /* PlistDecodableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistDecodableType.swift; sourceTree = "<group>"; };
+		3BAB88DD28988EBC00EB3EA3 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		3BAB88DF28988EF300EB3EA3 /* PlistDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +94,31 @@
 		3BAB88C82898811F00EB3EA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3BAB88E128988FFE00EB3EA3 /* plists */,
+				3BAB88DA28988E4900EB3EA3 /* APIConfiguration */,
 				3B8A9BC82896A99100ED8939 /* Info.plist */,
 				3B8A9BC52896A99100ED8939 /* LaunchScreen.storyboard */,
 				3B8A9BC32896A99100ED8939 /* Assets.xcassets */,
-				3BAB88D4289886D400EB3EA3 /* ApiConfiguration.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3BAB88DA28988E4900EB3EA3 /* APIConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				3BAB88DD28988EBC00EB3EA3 /* APIConfiguration.swift */,
+				3BAB88DB28988E8500EB3EA3 /* PlistDecodableType.swift */,
+				3BAB88DF28988EF300EB3EA3 /* PlistDecoder.swift */,
+			);
+			path = APIConfiguration;
+			sourceTree = "<group>";
+		};
+		3BAB88E128988FFE00EB3EA3 /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				3BAB88D828988D4200EB3EA3 /* APIConfiguration.plist */,
+			);
+			path = plists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAB88D928988D4200EB3EA3 /* APIConfiguration.plist in Resources */,
 				3B8A9BC72896A99100ED8939 /* LaunchScreen.storyboard in Resources */,
 				3B8A9BC42896A99100ED8939 /* Assets.xcassets in Resources */,
 			);
@@ -174,9 +200,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAB88DC28988E8500EB3EA3 /* PlistDecodableType.swift in Sources */,
+				3BAB88E028988EF300EB3EA3 /* PlistDecoder.swift in Sources */,
 				3B8A9BBB2896A98D00ED8939 /* AppDelegate.swift in Sources */,
 				3B8A9BBD2896A98D00ED8939 /* SceneDelegate.swift in Sources */,
-				3BAB88D5289886D400EB3EA3 /* ApiConfiguration.swift in Sources */,
+				3BAB88DE28988EBC00EB3EA3 /* APIConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

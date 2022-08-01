@@ -37,7 +37,7 @@ private extension SceneDelegate {
         resolver.append(assemblies: [
             assemblyFactory.useCases,
             assemblyFactory.networking,
-            assemblyFactory.apiConfiguration(ApiConfiguration())
+            assemblyFactory.apiConfiguration(APIConfiguration.decoded())
         ])
         return resolver
     }
