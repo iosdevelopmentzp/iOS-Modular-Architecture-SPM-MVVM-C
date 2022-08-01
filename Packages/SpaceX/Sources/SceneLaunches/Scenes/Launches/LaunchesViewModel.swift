@@ -70,7 +70,7 @@ public final class LaunchesViewModel: ViewModel {
     
     // MARK: - Bind
     
-    public func bind(input: Input) async -> Output {
+    public func bind(input: Input) -> Output {
         defer {
             loadData()
         }

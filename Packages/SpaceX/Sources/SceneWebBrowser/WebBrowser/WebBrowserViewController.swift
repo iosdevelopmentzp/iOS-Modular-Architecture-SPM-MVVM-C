@@ -43,10 +43,8 @@ public class WebBrowserViewController: SFSafariViewController, View {
     // MARK: - Setup
     
     public func setupOutput() {
-        Task {
-            let output = await viewModel.bind(input: .init())
-            setupInput(output)
-        }
+        let output = viewModel.bind(input: .init())
+        setupInput(output)
     }
     
     public func setupInput(_ input: WebBrowserViewModel.Output) {

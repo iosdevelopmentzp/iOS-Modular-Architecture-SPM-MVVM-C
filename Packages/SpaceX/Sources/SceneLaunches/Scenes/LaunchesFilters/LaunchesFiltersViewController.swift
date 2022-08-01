@@ -115,10 +115,8 @@ public final class LaunchesFiltersViewController: UIViewController, View, ViewSe
             self?.render(state: $0)
         }))
         
-        Task {
-            let input = await viewModel.bind(input: output)
-            setupInput(input)
-        }
+        let input = viewModel.bind(input: output)
+        setupInput(input)
     }
     
     public func setupInput(_ input: LaunchesFiltersViewModel.Output) {

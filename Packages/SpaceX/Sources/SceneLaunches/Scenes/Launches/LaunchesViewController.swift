@@ -99,10 +99,8 @@ public final class LaunchesViewController: UIViewController, View, ViewSettableT
             })
         )
         
-        Task {
-            let input = await viewModel.bind(input: output)
-            setupInput(input)
-        }
+        let input = viewModel.bind(input: output)
+        setupInput(input)
     }
     
     public func setupInput(_ input: LaunchesViewModel.Output) {

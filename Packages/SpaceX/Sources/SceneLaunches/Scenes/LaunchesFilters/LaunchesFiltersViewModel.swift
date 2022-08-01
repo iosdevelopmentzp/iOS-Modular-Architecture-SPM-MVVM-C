@@ -65,7 +65,7 @@ public final class LaunchesFiltersViewModel: ViewModel {
     
     // MARK: - Bind
     
-    public func bind(input: Input) async -> Output {
+    public func bind(input: Input) -> Output {
         defer {
             setupFiltersState()
         }

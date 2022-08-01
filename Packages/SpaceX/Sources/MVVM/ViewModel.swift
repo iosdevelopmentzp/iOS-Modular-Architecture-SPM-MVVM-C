@@ -11,5 +11,5 @@ public protocol ViewModel {
     associatedtype Input
     associatedtype Output
     
-    func bind(input: Input) async -> Output
+    @MainActor func bind(input: Input) -> Output
 }

@@ -32,7 +32,7 @@ public final class WebBrowserViewModel: ViewModel {
     
     // MARK: - Bind
     
-    public func bind(input: Input) async -> Output {
+    public func bind(input: Input) -> Output {
         .init(didTapDoneButton: { [weak self] in
             self?.sceneDelegate?.didTapDoneButton()
         })
