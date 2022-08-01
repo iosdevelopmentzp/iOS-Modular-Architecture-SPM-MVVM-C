@@ -10,6 +10,7 @@ import SceneLaunches
 import UseCases
 import Networking
 import UIKit
+import DependencyResolver
 
 // TODO: - Use DI for main app configurations injection
 struct Configuration: NetworkApiConfigurationProtocol {
@@ -19,14 +20,25 @@ struct Configuration: NetworkApiConfigurationProtocol {
 }
 
 final class LaunchesCoordinator: NavigationCoordinator {
+    // MARK: - Properties
+    
+    private let resolver: DependencyResolverProtocol
+    
     private var filtersCompletion: (([LaunchesFilter]) -> Void)?
     
+    // MARK: - Constructor
+    
+    init(navigation: UINavigationController, resolver: DependencyResolverProtocol) {
+        self.resolver = resolver
+        super.init(navigation: navigation)
+    }
+    
+    // MARK: - Start
+    
     override func start() {
-//        let networkFactory = NetworkServicesFactory(configuration: Configuration())
-//        let useCase = UseCasesFactory().spaceCompanyUseCase
-//        let viewModel = LaunchesViewModel(useCase: useCase, sceneDelegate: self)
-//        let view = LaunchesViewController(viewModel: viewModel)
-//        navigation.pushViewController(view, animated: false)
+        let viewModel = LaunchesViewModel(useCase: resolver.resolve(), sceneDelegate: self)
+        let view = LaunchesViewController(viewModel: viewModel)
+        navigation.pushViewController(view, animated: false)
     }
 }
 

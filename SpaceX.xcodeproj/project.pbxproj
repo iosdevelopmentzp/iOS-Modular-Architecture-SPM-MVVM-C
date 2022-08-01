@@ -14,6 +14,7 @@
 		3B8A9BC42896A99100ED8939 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B8A9BC32896A99100ED8939 /* Assets.xcassets */; };
 		3B8A9BC72896A99100ED8939 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8A9BC52896A99100ED8939 /* LaunchScreen.storyboard */; };
 		3B8A9BD22896AABE00ED8939 /* Coordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 3B8A9BD12896AABE00ED8939 /* Coordinators */; };
+		3BAB88CA2898816800EB3EA3 /* DependencyResolver in Frameworks */ = {isa = PBXBuildFile; productRef = 3BAB88C92898816800EB3EA3 /* DependencyResolver */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B8A9BD22896AABE00ED8939 /* Coordinators in Frameworks */,
+				3BAB88CA2898816800EB3EA3 /* DependencyResolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +65,7 @@
 			children = (
 				3B8A9BBA2896A98D00ED8939 /* AppDelegate.swift */,
 				3B8A9BBC2896A98D00ED8939 /* SceneDelegate.swift */,
+				3BAB88C82898811F00EB3EA3 /* Resources */,
 				3B8A9BBE2896A98D00ED8939 /* ViewController.swift */,
 				3B8A9BC02896A98D00ED8939 /* Main.storyboard */,
 				3B8A9BC32896A99100ED8939 /* Assets.xcassets */,
@@ -87,6 +90,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3BAB88C82898811F00EB3EA3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,6 +115,7 @@
 			name = SpaceX;
 			packageProductDependencies = (
 				3B8A9BD12896AABE00ED8939 /* Coordinators */,
+				3BAB88C92898816800EB3EA3 /* DependencyResolver */,
 			);
 			productName = SpaceX;
 			productReference = 3B8A9BB72896A98D00ED8939 /* SpaceX.app */;
@@ -386,6 +397,10 @@
 		3B8A9BD12896AABE00ED8939 /* Coordinators */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Coordinators;
+		};
+		3BAB88C92898816800EB3EA3 /* DependencyResolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DependencyResolver;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

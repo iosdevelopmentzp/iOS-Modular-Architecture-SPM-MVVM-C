@@ -14,10 +14,13 @@ public final class AppCoordinator: NavigationCoordinator {
     
     private let window: UIWindow
     
+    private let resolver: DependencyResolverProtocol
+    
     // MARK: - Constructor
     
-    public init(window: UIWindow) {
+    public init(window: UIWindow, resolver: DependencyResolverProtocol) {
         self.window = window
+        self.resolver = resolver
         let navigationController = UINavigationController()
         navigationController.view.backgroundColor = .white
         super.init(navigation: navigationController)
@@ -27,7 +30,7 @@ public final class AppCoordinator: NavigationCoordinator {
     
     public override func start() {
         window.rootViewController = navigation
-        let launches = LaunchesCoordinator(navigation: navigation)
+        let launches = LaunchesCoordinator(navigation: navigation, resolver: resolver)
         addChild(launches)
         launches.start()
         window.makeKeyAndVisible()

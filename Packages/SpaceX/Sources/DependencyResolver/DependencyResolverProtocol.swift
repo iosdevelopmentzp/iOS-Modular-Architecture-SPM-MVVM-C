@@ -1,5 +1,5 @@
 //
-//  DependenciesResolverProtocol.swift
+//  DependencyResolverProtocol.swift
 //  
 //
 //  Created by Dmytro Vorko on 01.08.2022.
