@@ -9,7 +9,7 @@ import Swinject
 import Networking
 
 struct NetworkingAssembly: Assembly {
-    public func assemble(container: Container) {
+    func assemble(container: Container) {
         container.register(NetworkServicesFactoryType.self) { resolver in
             guard let networkConfiguration = resolver.resolve(NetworkApiConfigurationProtocol.self) else {
                 fatalError("Failed NetworkApiConfigurationProtocol resolving attempt")

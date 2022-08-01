@@ -9,4 +9,11 @@ import Swinject
 
 public protocol DependencyRegisterProtocol {
     func append(assembly: Assembly)
+    func append(assemblies: [Assembly])
+}
+
+public extension DependencyRegisterProtocol {
+    func append(assemblies: [Assembly]) {
+        assemblies.forEach(self.append(assembly:))
+    }
 }

@@ -37,9 +37,7 @@ let package = Package(
             "UseCases"
         ]),
         
-        .target(name: "DependencyResolver", dependencies: [
-            "Assemblies"
-        ]),
+        .target(name: "DependencyResolver"),
         
         .target(name: "UseCases", dependencies: [
             "Networking",

@@ -7,10 +7,13 @@
 
 import Foundation
 import Swinject
+import Networking
 
 public protocol AssembliesFactoryProtocol {
     var networking: Assembly { get }
     var useCases: Assembly { get }
+    
+    func apiConfiguration(_ provider: @autoclosure @escaping () -> (NetworkApiConfigurationProtocol)) -> Assembly
 }
 
 public class AssembliesFactory {
@@ -26,5 +29,9 @@ extension AssembliesFactory: AssembliesFactoryProtocol {
     
     public var useCases: Assembly {
         UseCasesAssembly()
+    }
+    
+    public func apiConfiguration(_ provider: @autoclosure @escaping () -> (NetworkApiConfigurationProtocol)) -> Assembly {
+        APIConfigurationAssembly(provider)
     }
 }

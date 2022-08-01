@@ -7,26 +7,15 @@
 
 import Foundation
 import Swinject
-import Assemblies
 
 public final class DependencyResolver {
     // MARK: - Properties
     
     private let assembler = Assembler()
     
-    private var assemblies: [Assembly] {
-        let factory = AssembliesFactory()
-        return [
-            factory.networking,
-            factory.useCases
-        ]
-    }
-    
     // MARK: - Constructor
     
-    public init() {
-        assembler.apply(assemblies: assemblies)
-    }
+    public init() {}
 }
 
 // MARK: - DependencyResolverProtocol

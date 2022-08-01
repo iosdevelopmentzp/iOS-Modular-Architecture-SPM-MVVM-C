@@ -8,6 +8,7 @@
 import UIKit
 import Coordinators
 import DependencyResolver
+import Assemblies
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         self.window = window
-        let appCoordinator = AppCoordinator(window: window, resolver: initializeDependencyResolver())
+        let appCoordinator = AppCoordinator(window: window, resolver: setupDependencyResolver())
         self.appCoordinator = appCoordinator
         appCoordinator.start()
     }
@@ -28,9 +29,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 // MARK: - Private Functions
 
 private extension SceneDelegate {
-    private func initializeDependencyResolver() -> DependencyResolverProtocol {
+    private func setupDependencyResolver() -> DependencyResolverProtocol {
         let resolver = DependencyResolver()
-        resolver.append(assembly: ApiConfigurationAssembly())
+        
+        let assemblyFactory = AssembliesFactory()
+        
+        resolver.append(assemblies: [
+            assemblyFactory.useCases,
+            assemblyFactory.networking,
+            assemblyFactory.apiConfiguration(ApiConfiguration())
+        ])
         return resolver
     }
 }
