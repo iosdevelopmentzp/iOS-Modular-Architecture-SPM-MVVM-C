@@ -9,7 +9,7 @@ import UseCases
 import Swinject
 import Networking
 
-final class UseCasesAssembly: Assembly {
+struct UseCasesAssembly: Assembly {
     func assemble(container: Container) {
         container.register(UseCasesFactoryProtocol.self) { _ in
             UseCasesFactory()

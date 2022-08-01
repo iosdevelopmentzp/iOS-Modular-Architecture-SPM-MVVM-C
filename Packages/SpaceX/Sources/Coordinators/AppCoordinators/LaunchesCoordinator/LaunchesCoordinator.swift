@@ -12,13 +12,6 @@ import Networking
 import UIKit
 import DependencyResolver
 
-// TODO: - Use DI for main app configurations injection
-struct Configuration: NetworkApiConfigurationProtocol {
-    var host: String { "api.spacexdata.com" }
-    
-    var apiVersion: String { "v4" }
-}
-
 final class LaunchesCoordinator: NavigationCoordinator {
     // MARK: - Properties
     

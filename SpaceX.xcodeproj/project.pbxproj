@@ -13,6 +13,9 @@
 		3B8A9BC72896A99100ED8939 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8A9BC52896A99100ED8939 /* LaunchScreen.storyboard */; };
 		3B8A9BD22896AABE00ED8939 /* Coordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 3B8A9BD12896AABE00ED8939 /* Coordinators */; };
 		3BAB88CA2898816800EB3EA3 /* DependencyResolver in Frameworks */ = {isa = PBXBuildFile; productRef = 3BAB88C92898816800EB3EA3 /* DependencyResolver */; };
+		3BAB88CD2898848D00EB3EA3 /* ApiConfigurationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB88CC2898848D00EB3EA3 /* ApiConfigurationAssembly.swift */; };
+		3BAB88D32898867400EB3EA3 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 3BAB88D22898867400EB3EA3 /* Swinject */; };
+		3BAB88D5289886D400EB3EA3 /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB88D4289886D400EB3EA3 /* ApiConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,8 @@
 		3B8A9BC62896A99100ED8939 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B8A9BC82896A99100ED8939 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8A9BCF2896AA8300ED8939 /* SpaceX */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SpaceX; path = Packages/SpaceX; sourceTree = "<group>"; };
+		3BAB88CC2898848D00EB3EA3 /* ApiConfigurationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfigurationAssembly.swift; sourceTree = "<group>"; };
+		3BAB88D4289886D400EB3EA3 /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,7 @@
 			files = (
 				3B8A9BD22896AABE00ED8939 /* Coordinators in Frameworks */,
 				3BAB88CA2898816800EB3EA3 /* DependencyResolver in Frameworks */,
+				3BAB88D32898867400EB3EA3 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +67,7 @@
 			children = (
 				3B8A9BBA2896A98D00ED8939 /* AppDelegate.swift */,
 				3B8A9BBC2896A98D00ED8939 /* SceneDelegate.swift */,
+				3BAB88CB2898846300EB3EA3 /* Dependecies */,
 				3BAB88C82898811F00EB3EA3 /* Resources */,
 			);
 			path = SpaceX;
@@ -87,8 +94,17 @@
 				3B8A9BC82896A99100ED8939 /* Info.plist */,
 				3B8A9BC52896A99100ED8939 /* LaunchScreen.storyboard */,
 				3B8A9BC32896A99100ED8939 /* Assets.xcassets */,
+				3BAB88D4289886D400EB3EA3 /* ApiConfiguration.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3BAB88CB2898846300EB3EA3 /* Dependecies */ = {
+			isa = PBXGroup;
+			children = (
+				3BAB88CC2898848D00EB3EA3 /* ApiConfigurationAssembly.swift */,
+			);
+			path = Dependecies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +126,7 @@
 			packageProductDependencies = (
 				3B8A9BD12896AABE00ED8939 /* Coordinators */,
 				3BAB88C92898816800EB3EA3 /* DependencyResolver */,
+				3BAB88D22898867400EB3EA3 /* Swinject */,
 			);
 			productName = SpaceX;
 			productReference = 3B8A9BB72896A98D00ED8939 /* SpaceX.app */;
@@ -139,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 3B8A9BAE2896A98D00ED8939;
+			packageReferences = (
+				3BAB88D12898867400EB3EA3 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 3B8A9BB82896A98D00ED8939 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,7 +186,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B8A9BBB2896A98D00ED8939 /* AppDelegate.swift in Sources */,
+				3BAB88CD2898848D00EB3EA3 /* ApiConfigurationAssembly.swift in Sources */,
 				3B8A9BBD2896A98D00ED8939 /* SceneDelegate.swift in Sources */,
+				3BAB88D5289886D400EB3EA3 /* ApiConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +401,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		3BAB88D12898867400EB3EA3 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		3B8A9BD12896AABE00ED8939 /* Coordinators */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -387,6 +420,11 @@
 		3BAB88C92898816800EB3EA3 /* DependencyResolver */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyResolver;
+		};
+		3BAB88D22898867400EB3EA3 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BAB88D12898867400EB3EA3 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

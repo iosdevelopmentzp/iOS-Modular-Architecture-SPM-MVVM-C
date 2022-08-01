@@ -30,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 private extension SceneDelegate {
     private func initializeDependencyResolver() -> DependencyResolverProtocol {
         let resolver = DependencyResolver()
+        resolver.append(assembly: ApiConfigurationAssembly())
         return resolver
     }
 }

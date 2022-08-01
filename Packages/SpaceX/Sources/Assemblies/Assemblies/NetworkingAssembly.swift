@@ -8,7 +8,7 @@
 import Swinject
 import Networking
 
-final class NetworkingAssembly: Assembly {
+struct NetworkingAssembly: Assembly {
     public func assemble(container: Container) {
         container.register(NetworkServicesFactoryType.self) { resolver in
             guard let networkConfiguration = resolver.resolve(NetworkApiConfigurationProtocol.self) else {
