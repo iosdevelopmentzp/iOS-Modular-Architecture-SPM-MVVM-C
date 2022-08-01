@@ -9,28 +9,28 @@ import Foundation
 import Networking
 
 public protocol UseCasesFactoryProtocol {
-    var spaceCompanyUseCase: SpaceCompanyUseCaseProtocol { get }
+    func spaceCompanyUseCase(
+        spaceCompanyNetwork: SpaceCompanyNetworkServiceType,
+        spaceFacilitiesNetwork: SpaceFacilitiesNetworkServiceType
+    ) -> SpaceCompanyUseCaseProtocol
 }
 
 public final class UseCasesFactory {
-    // MARK: - Properties
-    
-    private let networkFactory: NetworkServicesFactoryType
-    
     // MARK: - Constructor
     
-    public init(networkFactory: NetworkServicesFactoryType) {
-        self.networkFactory = networkFactory
-    }
+    public init() {}
 }
 
 // MARK: - UseCasesFactoryProtocol
 
 extension UseCasesFactory: UseCasesFactoryProtocol {
-    public var spaceCompanyUseCase: SpaceCompanyUseCaseProtocol {
+    public func spaceCompanyUseCase(
+        spaceCompanyNetwork: SpaceCompanyNetworkServiceType,
+        spaceFacilitiesNetwork: SpaceFacilitiesNetworkServiceType
+    ) -> SpaceCompanyUseCaseProtocol {
         SpaceCompanyUseCase(
-            spaceCompanyNetwork: networkFactory.spaceCompanyService,
-            spaceFacilitiesNetwork: networkFactory.spaceFacilitiesService
+            spaceCompanyNetwork: spaceCompanyNetwork,
+            spaceFacilitiesNetwork: spaceFacilitiesNetwork
         )
     }
 }

@@ -22,11 +22,11 @@ final class LaunchesCoordinator: NavigationCoordinator {
     private var filtersCompletion: (([LaunchesFilter]) -> Void)?
     
     override func start() {
-        let networkFactory = NetworkServicesFactory(configuration: Configuration())
-        let useCase = UseCasesFactory(networkFactory: networkFactory).spaceCompanyUseCase
-        let viewModel = LaunchesViewModel(useCase: useCase, sceneDelegate: self)
-        let view = LaunchesViewController(viewModel: viewModel)
-        navigation.pushViewController(view, animated: false)
+//        let networkFactory = NetworkServicesFactory(configuration: Configuration())
+//        let useCase = UseCasesFactory().spaceCompanyUseCase
+//        let viewModel = LaunchesViewModel(useCase: useCase, sceneDelegate: self)
+//        let view = LaunchesViewController(viewModel: viewModel)
+//        navigation.pushViewController(view, animated: false)
     }
 }
 

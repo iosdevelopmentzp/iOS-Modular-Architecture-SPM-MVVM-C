@@ -8,6 +8,8 @@ let package = Package(
     platforms: [.iOS(.v13)],
     products: [
         .library(name: "Core", targets: ["Core"]),
+        .library(name: "Assemblies", targets: ["Assemblies"]),
+        .library(name: "DependencyResolver", targets: ["DependencyResolver"]),
         .library(name: "UseCases", targets: ["UseCases"]),
         .library(name: "Networking", targets: ["Networking"]),
         .library(name: "Extensions", targets: ["Extensions"]),
@@ -23,10 +25,21 @@ let package = Package(
         .package(url: "https://github.com/SnapKit/SnapKit.git", exact: "5.6.0"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", exact: "5.6.1"),
         .package(url: "https://github.com/onevcat/Kingfisher", exact: "7.0.0"),
-        .package(url: "https://github.com/konkab/AlamofireNetworkActivityLogger.git", exact: "3.4.0")
+        .package(url: "https://github.com/konkab/AlamofireNetworkActivityLogger.git", exact: "3.4.0"),
+        .package(url: "https://github.com/Swinject/Swinject.git", exact: "2.8.0")
     ],
     targets: [
         .target(name: "Core"),
+        
+        .target(name: "Assemblies", dependencies: [
+            "Swinject",
+            "Networking",
+            "UseCases"
+        ]),
+        
+        .target(name: "DependencyResolver", dependencies: [
+            "Assemblies"
+        ]),
         
         .target(name: "UseCases", dependencies: [
             "Networking",
@@ -59,7 +72,8 @@ let package = Package(
             "Core",
             "Networking",
             "SceneLaunches",
-            "SceneWebBrowser"
+            "SceneWebBrowser",
+            "DependencyResolver"
         ]),
         
         .target(name: "SceneLaunches", dependencies: [

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import DependencyResolver
 
 public final class AppCoordinator: NavigationCoordinator {
     // MARK: - Properties
